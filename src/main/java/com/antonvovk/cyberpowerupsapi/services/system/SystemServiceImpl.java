@@ -19,6 +19,7 @@ class SystemServiceImpl implements SystemService {
         try {
             var process = new ProcessBuilder().command(command).start();
             var exitCode = process.waitFor();
+            log.info("Executed command {} with exit code {}", command, exitCode);
             return new CommandResult(getResponse(process), exitCode);
         } catch (InterruptedException e) {
             log.error("", e);
