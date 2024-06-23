@@ -64,9 +64,19 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <image>
+                        <name>https://ghcr.io/antonvovk/${project.artifactId}:${project.version}</name>
+                        <publish>false</publish>
+                    </image>
+                    <docker>
+                        <publishRegistry>
+                            <username>${env.github.actor}</username>
+                            <password>${env.GITHUB_TOKEN}</password>
+                            <url>https://ghcr.io</url>
+                        </publishRegistry>
+                    </docker>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>
