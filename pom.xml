@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.antonvovk</groupId>
     <artifactId>cyberpower-ups-api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>cyberpower-ups-api</name>
     <description>cyberpower-ups-api</description>
     <url/>
@@ -65,7 +65,7 @@
                         </exclude>
                     </excludes>
                     <image>
-                        <name>https://ghcr.io/antonvovk/${project.artifactId}:${project.version}</name>
+                        <name>ghcr.io/antonvovk/${project.artifactId}:${project.version}</name>
                         <publish>true</publish>
                     </image>
                     <docker>
