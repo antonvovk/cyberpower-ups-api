@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CyberpowerUpsApiApplication {
+public class CyberPowerUpsApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CyberpowerUpsApiApplication.class, args);
+        SpringApplication.run(CyberPowerUpsApiApplication.class, args);
     }
-
 }

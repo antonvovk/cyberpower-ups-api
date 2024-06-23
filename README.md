@@ -1,3 +1,6 @@
+# General
+Simple API for retrieving information about the CyberPower UPS
+
 # Prerequisites
 Allow executing pwrstat with sudo NOPASSWD right.
 

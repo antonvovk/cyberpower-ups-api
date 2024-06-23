@@ -3,7 +3,7 @@ package com.antonvovk.cyberpowerupsapi.services.system;
 import com.antonvovk.cyberpowerupsapi.services.system.exceptions.ProcessResponseReadException;
 import com.antonvovk.cyberpowerupsapi.services.system.exceptions.ProcessStartFailureException;
 import com.antonvovk.cyberpowerupsapi.services.system.exceptions.ProcessWaitInterruptedException;
-import com.antonvovk.cyberpowerupsapi.services.system.models.CommandResponse;
+import com.antonvovk.cyberpowerupsapi.services.system.models.CommandResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ import java.io.IOException;
 class SystemServiceImpl implements SystemService {
 
     @Override
-    public CommandResponse executeCommand(String... command) {
+    public CommandResult executeCommand(String... command) {
         try {
             var process = new ProcessBuilder().command(command).start();
             var exitCode = process.waitFor();
-            return new CommandResponse(getResponse(process), exitCode);
+            return new CommandResult(getResponse(process), exitCode);
         } catch (InterruptedException e) {
             log.error("", e);
             throw new ProcessWaitInterruptedException(e);

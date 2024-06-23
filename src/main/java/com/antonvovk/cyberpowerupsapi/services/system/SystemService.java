@@ -1,8 +1,8 @@
 package com.antonvovk.cyberpowerupsapi.services.system;
 
-import com.antonvovk.cyberpowerupsapi.services.system.models.CommandResponse;
+import com.antonvovk.cyberpowerupsapi.services.system.models.CommandResult;
 
 public interface SystemService {
 
-    CommandResponse executeCommand(String... command);
+    CommandResult executeCommand(String... command);
 }
