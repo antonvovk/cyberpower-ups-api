@@ -17,7 +17,7 @@ public class CyberPowerServiceImpl implements CyberPowerService {
 
     @Override
     public CyberPowerUps getUps() {
-        var response = systemService.executeCommand("pwrstat", "-status");
+        var response = systemService.executeCommand("sudo", "pwrstat", "-status");
         var ups = CyberPowerUps.builder()
                 .modelName(extractStringValue(response, Pattern.compile("Model Name\\.* (.*)")))
                 .firmwareNumber(extractStringValue(response, Pattern.compile("Firmware Number\\.* (.*)")))

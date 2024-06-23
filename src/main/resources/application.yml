@@ -6,3 +6,4 @@ server:
   error:
     include-message: always
     include-exception: true
+  port: 9090
