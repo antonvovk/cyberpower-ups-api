@@ -2,10 +2,15 @@
 Simple API for retrieving information about the CyberPower UPS
 
 # Prerequisites
-Allow executing pwrstat with sudo NOPASSWD right.
+ - Allow executing pwrstat with sudo NOPASSWD right
+ - Create executable which will run pwrstat with sudo
 
-/etc/sudoers.d/pwrstat:
-`%sudo ALL=(ALL) NOPASSWD: /usr/sbin/pwrstat`
+```
+echo "%sudo ALL=(ALL) NOPASSWD: /usr/sbin/pwrstat" | sudo tee /etc/sudoers.d/pwrstat
+echo -e '#!/bin/bash\n\nsudo pwrstat "$@"' | sudo tee /usr/sbin/pwrstat-as-sudo
+sudo chmod +x /usr/sbin/pwrstat-as-sudo
+```
+
 
 # Usage
 Example docker compose:
@@ -20,7 +25,7 @@ services:
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /usr/sbin/pwrstat:/usr/sbin/pwrstat:ro
+      - /usr/sbin/pwrstat:/usr/sbin/pwrstat-as-sudo:ro
       - /var/pwrstatd.ipc:/var/pwrstatd.ipc:ro
       - /var/pwrstatd.dev:/var/pwrstatd.dev:ro
     privileged: true
