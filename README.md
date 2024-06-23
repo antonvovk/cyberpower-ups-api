@@ -16,11 +16,12 @@ services:
     ports:
       - "9090:8080"
     container_name: cyberpower-ups-api
-    image: ghcr.io/antonvovk/cyberpower-ups-api:1.0.1
+    image: ghcr.io/antonvovk/cyberpower-ups-api:1.0.3
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /usr/sbin/pwrstat:/usr/sbin/pwrstat:ro
       - /var/pwrstatd.ipc:/var/pwrstatd.ipc:ro
       - /var/pwrstatd.dev:/var/pwrstatd.dev:ro
+    privileged: true
 ```
