@@ -3,3 +3,6 @@ spring:
     name: cyberpower-ups-api
 server:
   shutdown: graceful
+  error:
+    include-message: always
+    include-exception: true

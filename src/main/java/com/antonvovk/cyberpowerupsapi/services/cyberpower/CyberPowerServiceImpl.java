@@ -17,8 +17,7 @@ public class CyberPowerServiceImpl implements CyberPowerService {
 
     @Override
     public CyberPowerUps getUps() {
-        var commandResult = systemService.executeCommand("pwrstat", "-status");
-        var response = commandResult.response();
+        var response = systemService.executeCommand("pwrstat", "-status");
         var ups = CyberPowerUps.builder()
                 .modelName(extractStringValue(response, Pattern.compile("Model Name\\.* (.*)")))
                 .firmwareNumber(extractStringValue(response, Pattern.compile("Firmware Number\\.* (.*)")))
@@ -36,7 +35,7 @@ public class CyberPowerServiceImpl implements CyberPowerService {
                 .testResult(extractStringValue(response, Pattern.compile("Test Result\\.* (.*)")))
                 .lastPowerEvent(extractStringValue(response, Pattern.compile("Last Power Event\\.* (.*)")))
                 .build();
-        log.info("Parsed raw response {} into UPS {}", response, ups);
+        log.info("Retrieved UPS {}", ups);
         return ups;
     }
 

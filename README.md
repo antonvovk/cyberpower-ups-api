@@ -21,7 +21,7 @@ services:
     ports:
       - "9090:8080"
     container_name: cyberpower-ups-api
-    image: ghcr.io/antonvovk/cyberpower-ups-api:1.0.5
+    image: ghcr.io/antonvovk/cyberpower-ups-api:1.0.6
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
