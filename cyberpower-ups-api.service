@@ -1,0 +1,11 @@
+[Unit]
+Description=CyberPower UPS API
+After=pwrstatd.service
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /opt/cyberpower-ups-api/app.py
+
+[Install]
+WantedBy=multi-user.target
