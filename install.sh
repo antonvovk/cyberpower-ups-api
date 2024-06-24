@@ -5,8 +5,6 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
-pip install -r requirements.txt
-
 mkdir /opt/cyberpower-ups-api
 cp app.py /opt/cyberpower-ups-api/app.py
 
