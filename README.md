@@ -14,3 +14,8 @@ git clone 'https://github.com/antonvovk/cyberpower-ups-api.git'
 cd cyberpower-ups-api
 sudo ./install.sh
 ```
+
+# Uninstall
+```
+sudo ./uninstall.sh
+```
